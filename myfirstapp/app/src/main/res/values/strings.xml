@@ -8,6 +8,7 @@
         <item>+</item>
         <item>-</item>
         <item>*</item>
+        <item>%</item>
         <item>/</item>
     </string-array>
     <string name="title_activity_display_result">DisplayResultActivity</string>

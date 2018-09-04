@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
             "+" -> x + y
             "-" -> x - y
             "*" -> x * y
-            "%" -> if (y == 0.toDouble()) (-1).toDouble() else x % y
-            "/" -> if (y == 0.toDouble()) (-1).toDouble() else x / y
+            "%" -> if (y == 0.0) -1.0 else x % y
+            "/" -> if (y == 0.0) -1.0 else x / y
             else -> 0.toDouble()
         }
     }

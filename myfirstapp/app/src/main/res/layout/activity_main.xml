@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Spinner
-        android:id="@+id/operationsSpinner"
+        android:id="@+id/spinnerOperators"
         android:layout_width="116dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
@@ -27,9 +27,9 @@
         android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="@string/hint_message"
-        android:inputType="number"
-        app:layout_constraintBaseline_toBaselineOf="@+id/operationsSpinner"
-        app:layout_constraintEnd_toStartOf="@+id/operationsSpinner"
+        android:inputType="number|numberSigned|numberDecimal"
+        app:layout_constraintBaseline_toBaselineOf="@+id/spinnerOperators"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerOperators"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -42,11 +42,11 @@
         android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="@string/hint_message"
-        android:inputType="number"
-        app:layout_constraintBaseline_toBaselineOf="@+id/operationsSpinner"
+        android:inputType="number|numberSigned|numberDecimal"
+        app:layout_constraintBaseline_toBaselineOf="@+id/spinnerOperators"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/operationsSpinner" />
+        app:layout_constraintStart_toEndOf="@+id/spinnerOperators" />
 
     <Button
         android:id="@+id/buttonCompute"
@@ -57,10 +57,11 @@
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:onClick="compute"
         android:text="@string/compute"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/operationsSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerOperators" />
 
     <TextView
         android:id="@+id/textViewResult"

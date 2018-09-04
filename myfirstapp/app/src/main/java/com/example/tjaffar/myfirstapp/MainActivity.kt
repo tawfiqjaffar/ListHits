@@ -26,14 +26,16 @@ class MainActivity : AppCompatActivity() {
             "+" -> x + y
             "-" -> x - y
             "*" -> x * y
+            "%" -> if (y == 0.toDouble()) (-1).toDouble() else x % y
             "/" -> if (y == 0.toDouble()) (-1).toDouble() else x / y
             else -> 0.toDouble()
         }
     }
 
-    fun compute() {
+    fun compute(view: View) {
         val editTextNum1 = findViewById<EditText>(R.id.editTextNum1)
         val editTextNum2 = findViewById<EditText>(R.id.editTextNum2)
+        Log.d("debug", "here")
 
         if (editTextNum1.text.toString().trim().isEmpty() ||
                 editTextNum2.text.toString().trim().isEmpty()) {

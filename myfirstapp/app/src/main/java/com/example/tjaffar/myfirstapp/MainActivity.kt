@@ -3,7 +3,6 @@ package com.example.tjaffar.myfirstapp
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 
@@ -17,7 +16,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun getOperator() : String {
         val myOp = findViewById<Spinner>(R.id.spinnerOperators)
-
         return myOp.selectedItem.toString()
     }
 
@@ -35,7 +33,6 @@ class MainActivity : AppCompatActivity() {
     fun compute(view: View) {
         val editTextNum1 = findViewById<EditText>(R.id.editTextNum1)
         val editTextNum2 = findViewById<EditText>(R.id.editTextNum2)
-        Log.d("debug", "here")
 
         if (editTextNum1.text.toString().trim().isEmpty() ||
                 editTextNum2.text.toString().trim().isEmpty()) {

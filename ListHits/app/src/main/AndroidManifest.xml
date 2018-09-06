@@ -20,7 +20,7 @@
         </activity>
         <activity
             android:name=".ListResultsDisplay"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ArticlePageDisplay"
             android:parentActivityName=".ListResultsDisplay" />

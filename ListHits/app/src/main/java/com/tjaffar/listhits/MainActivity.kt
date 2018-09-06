@@ -13,6 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 const val EXTRA_QUERY = "com.tjaffar.listhits.QUERY"
+const val EXTRA_ITEM = "com.tjaffar.listhits.ITEM"
 
 class MainActivity : AppCompatActivity() {
 

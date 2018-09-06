@@ -1,12 +1,14 @@
 package com.tjaffar.listhits
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.list_layout.view.*
 
 class ResultsAdapter(private val items: ArrayList<SearchInfoList>,
@@ -24,7 +26,16 @@ class ResultsAdapter(private val items: ArrayList<SearchInfoList>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.listTitle.text = items.get(position).title
+        val result = items[position]
+
+        holder.listTitle.text = result.title
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, ArticlePageDisplay::class.java).apply {
+                putExtra(EXTRA_ITEM, "test")
+            }
+            context.startActivity(intent)
+        }
+
     }
 }
 

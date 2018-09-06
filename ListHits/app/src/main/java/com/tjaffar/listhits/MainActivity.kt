@@ -13,6 +13,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     private val api = Network.createRetroFitInstance()
+    private val tool = Tools.create()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +29,14 @@ class MainActivity : AppCompatActivity() {
         call.enqueue(object: Callback<QueryResults> {
             override fun onResponse(call: Call<QueryResults>, response: Response<QueryResults>) {
                 val results = response.body()
-                
+
+                for (hit in results!!.query!!.search!!) {
+                    val debugString = "%s\tid:%d\n%s".format(hit.title, hit.pageid,
+                            android.text.Html.fromHtml(hit.snippet))
+
+                    tool.printf(debugString)
+                }
+
             }
             override fun onFailure(call: Call<QueryResults>, t: Throwable) {
                 Log.d("LOG", t.message.toString())

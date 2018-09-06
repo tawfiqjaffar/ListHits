@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ListHits</string>
+    <string name="article_name">Article Name</string>
 </resources>

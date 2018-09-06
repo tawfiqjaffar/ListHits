@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ArticlePageDisplay">
+
+    <TextView
+        android:id="@+id/textViewArticleName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/article_name"
+        android:textSize="23sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:justificationMode="inter_word"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus euismod, odio maximus convallis maximus, dolor magna tincidunt massa, in varius leo metus at leo. Fusce purus nisi, condimentum et venenatis id, dictum eu metus. Ut mollis ante vitae diam tempor lobortis. Donec quis neque magna. Fusce sagittis ante odio, vitae congue lacus viverra eu. Cras eu dolor mattis, ultrices ligula non, rutrum ligula. Maecenas pharetra ante et malesuada lobortis. Integer auctor lorem eu tortor suscipit congue.  Vestibulum aliquam luctus est ut viverra. Donec viverra laoreet sem scelerisque interdum. Suspendisse a commodo mi, id eleifend lectus. Suspendisse mattis vestibulum ligula. Nam eget volutpat lectus. Ut malesuada felis nisl, vel sagittis tortor molestie nec. Nullam lacus arcu, eleifend eu tempus eu, blandit quis magna. Cras ut quam venenatis ante auctor aliquet vitae in sapien. Nullam blandit nulla et libero consequat, ac interdum nulla vestibulum. Nullam consectetur enim eu erat luctus, ut cursus purus venenatis. Phasellus imperdiet eget metus a commodo. Nulla eu metus in risus tincidunt convallis. Donec eleifend sem nec massa laoreet, at malesuada ex maximus. Suspendisse ut mauris lacinia, laoreet magna ut, iaculis leo. Aenean congue bibendum ex et viverra."
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewArticleName"
+        />
+</android.support.constraint.ConstraintLayout>

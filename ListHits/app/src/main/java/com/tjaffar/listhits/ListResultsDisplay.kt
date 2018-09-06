@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.widget.Adapter
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_list_results_display.*
+import kotlinx.android.synthetic.main.activity_list_results_display.recyclerResults
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,7 +23,16 @@ class ListResultsDisplay : AppCompatActivity() {
         setContentView(R.layout.activity_list_results_display)
         val queryString = intent.getStringExtra(EXTRA_QUERY)
 
+        val test = SearchInfoList("This is a test",
+                                "some timestamp",
+                                "Some snipptet",
+                                1239123,
+                                1231)
+
+        list.add(test)
+
         getResponses(queryString)
+        tool.printf(list.size.toString())
 
         recyclerResults.layoutManager = LinearLayoutManager(this)
         recyclerResults.adapter = ResultsAdapter(list, this)
@@ -34,14 +44,12 @@ class ListResultsDisplay : AppCompatActivity() {
         call.enqueue(object: Callback<QueryResults> {
             override fun onResponse(call: Call<QueryResults>, response: Response<QueryResults>) {
                 val results = response.body()
-                var resultString = ""
 
                 for (hit in results!!.query!!.search!!) {
-                    list.add(hit)
+                    val temp = hit
+                    list.add(temp)
                 }
-                tool.printf(list.size.toString())
                 //displayTitles(resultString)
-
             }
             override fun onFailure(call: Call<QueryResults>, t: Throwable) {
                 tool.printf(t.message.toString())

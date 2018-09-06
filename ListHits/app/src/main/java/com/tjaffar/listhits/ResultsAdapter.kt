@@ -18,14 +18,15 @@ class ResultsAdapter(private val items: ArrayList<SearchInfoList>, val context :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context)
-                .inflate(R.layout.list_layout, parent, false) as View
+                .inflate(R.layout.list_layout, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val result = items[position]
+        holder.listTitle.text = items.get(position).title
+//        val result = items[position]
 
-        holder.listTitle.text = result.title
+//        holder.listTitle.text = result.title
     }
 }
 

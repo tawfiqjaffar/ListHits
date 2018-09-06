@@ -2,7 +2,11 @@ package com.tjaffar.listhits
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.widget.Adapter
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_list_results_display.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -11,6 +15,7 @@ class ListResultsDisplay : AppCompatActivity() {
 
     private val api = Network.createRetroFitInstance()
     private val tool = Tools.create()
+    val list : ArrayList<SearchInfoList> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +23,9 @@ class ListResultsDisplay : AppCompatActivity() {
         val queryString = intent.getStringExtra(EXTRA_QUERY)
 
         getResponses(queryString)
+
+        recyclerResults.layoutManager = LinearLayoutManager(this)
+        recyclerResults.adapter = ResultsAdapter(list, this)
     }
 
     private fun getResponses(queryString : String) {
@@ -29,9 +37,10 @@ class ListResultsDisplay : AppCompatActivity() {
                 var resultString = ""
 
                 for (hit in results!!.query!!.search!!) {
-                    resultString += "%s\n".format(hit.title)
+                    list.add(hit)
                 }
-                displayTitles(resultString)
+                tool.printf(list.size.toString())
+                //displayTitles(resultString)
 
             }
             override fun onFailure(call: Call<QueryResults>, t: Throwable) {
@@ -40,10 +49,10 @@ class ListResultsDisplay : AppCompatActivity() {
         })
     }
 
-    private fun displayTitles(string: String) {
-        tool.printf(string.length.toString())
-        val resultText = findViewById<TextView>(R.id.textViewListResults)
-
-        resultText.text = string
-    }
+//    private fun displayTitles(string: String) {
+//        tool.printf(string.length.toString())
+//        val resultText = findViewById<TextView>(R.id.textViewListResults)
+//
+//        resultText.text = string
+//    }
 }

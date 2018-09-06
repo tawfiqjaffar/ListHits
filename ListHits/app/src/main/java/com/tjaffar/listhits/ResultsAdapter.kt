@@ -9,7 +9,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import kotlinx.android.synthetic.main.list_layout.view.*
 
-class ResultsAdapter(private val items: ArrayList<SearchInfoList>, val context : Context)
+class ResultsAdapter(private val items: ArrayList<SearchInfoList>,
+                     private val context : Context)
     : RecyclerView.Adapter<ViewHolder>() {
 
     override fun getItemCount(): Int {
@@ -24,12 +25,9 @@ class ResultsAdapter(private val items: ArrayList<SearchInfoList>, val context :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.listTitle.text = items.get(position).title
-//        val result = items[position]
-
-//        holder.listTitle.text = result.title
     }
 }
 
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val listTitle = view.list_title
+    val listTitle : TextView = view.list_title
 }

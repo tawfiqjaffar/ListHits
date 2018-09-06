@@ -4,8 +4,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import android.widget.Adapter
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_list_results_display.*
 import kotlinx.android.synthetic.main.activity_list_results_display.recyclerResults
 import retrofit2.Call
@@ -16,6 +18,7 @@ class ListResultsDisplay : AppCompatActivity() {
 
     private val api = Network.createRetroFitInstance()
     private val tool = Tools.create()
+    lateinit var recyclerResults : RecyclerView
     val list : ArrayList<SearchInfoList> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,14 +26,7 @@ class ListResultsDisplay : AppCompatActivity() {
         setContentView(R.layout.activity_list_results_display)
         val queryString = intent.getStringExtra(EXTRA_QUERY)
 
-        val test = SearchInfoList("This is a test",
-                                "some timestamp",
-                                "Some snipptet",
-                                1239123,
-                                1231)
-
-        list.add(test)
-
+        recyclerResults = findViewById(R.id.recyclerResults)
         getResponses(queryString)
         tool.printf(list.size.toString())
 
@@ -46,9 +42,10 @@ class ListResultsDisplay : AppCompatActivity() {
                 val results = response.body()
 
                 for (hit in results!!.query!!.search!!) {
-                    val temp = hit
-                    list.add(temp)
+                    list.add(hit)
                 }
+                recyclerResults.adapter!!.notifyDataSetChanged()
+
                 //displayTitles(resultString)
             }
             override fun onFailure(call: Call<QueryResults>, t: Throwable) {

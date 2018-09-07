@@ -19,7 +19,7 @@ import retrofit2.Response
 
 class ListResultsDisplay : AppCompatActivity() {
 
-    private val api = Network.createRetroFitInstance()
+    private lateinit var api : Network
     private val tool = Tools.create()
     lateinit var recyclerResults : RecyclerView
     lateinit var loadingSpinner : ProgressBar
@@ -28,6 +28,8 @@ class ListResultsDisplay : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_results_display)
+
+        api = Network.createRetroFitInstance(intent.getStringExtra(EXTRA_EN_FR))
         val queryString : String = intent.getStringExtra(EXTRA_QUERY)
 
         loadingSpinner = findViewById(R.id.loadingSpinner)

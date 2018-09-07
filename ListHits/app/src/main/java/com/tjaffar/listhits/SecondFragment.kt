@@ -46,8 +46,9 @@ class SecondFragment : Fragment() {
     }
 
     private fun buildUrl(pageId : Int) : String {
-        val result = "http://en.wikipedia.org/?curid="
+        val res = if (lang_global == "FR") "http://fr.wikipedia.org/?curid=" else "http://en.wikipedia.org/?curid="
+//        val result = "http://en.wikipedia.org/?curid="
 
-        return result + pageId.toString()
+        return res + pageId.toString()
     }
 }

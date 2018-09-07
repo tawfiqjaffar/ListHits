@@ -6,31 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ArticlePageDisplay">
 
-    <TextView
-        android:id="@+id/textViewArticleName"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/article_name"
-        android:textSize="23sp"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/tabs_main"
+        android:background="@color/colorPrimary"
+        app:tabTextColor="@color/white"
+        app:tabMode="fixed"/>
 
-    <TextView
-        android:id="@+id/textViewArticleContent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:justificationMode="inter_word"
-        android:padding="10dp"
-        android:text="@string/lorem"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewArticleName" />
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewpager_main"
+        app:layout_constraintBottom_toBottomOf="@+id/tabs_main" />
 
 </android.support.constraint.ConstraintLayout>

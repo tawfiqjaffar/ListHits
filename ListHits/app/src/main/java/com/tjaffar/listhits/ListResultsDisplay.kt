@@ -4,15 +4,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
-
 import android.view.View
-import android.widget.Adapter
 import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_list_results_display.*
-import kotlinx.android.synthetic.main.activity_list_results_display.recyclerResults
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,7 +30,6 @@ class ListResultsDisplay : AppCompatActivity() {
         recyclerResults = findViewById(R.id.recyclerResults)
         getResponses(queryString)
         tool.printf(list.size.toString())
-
         recyclerResults.layoutManager = LinearLayoutManager(this)
         recyclerResults.adapter = ResultsAdapter(list, this)
     }

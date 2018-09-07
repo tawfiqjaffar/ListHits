@@ -25,8 +25,6 @@ interface Network {
                 url = "http://en.wikipedia.org/w/"
             }
 
-           // var url : String = if (lang == "FR") "http://fr.wikipedia.org/w/" else "http://en.wikipedia.org/w/"
-
             val retrofit = Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create())
                     .baseUrl(url)

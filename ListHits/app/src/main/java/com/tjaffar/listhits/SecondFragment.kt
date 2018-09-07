@@ -42,6 +42,12 @@ class SecondFragment : Fragment() {
                 return true
             }
         }
-        webView.loadUrl("http://google.com/")
+        webView.loadUrl(buildUrl(article.pageid))
+    }
+
+    private fun buildUrl(pageId : Int) : String {
+        val result = "http://en.wikipedia.org/?curid="
+
+        return result + pageId.toString()
     }
 }

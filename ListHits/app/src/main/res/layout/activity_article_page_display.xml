@@ -27,7 +27,8 @@
         android:layout_marginTop="16dp"
         android:justificationMode="inter_word"
         android:padding="10dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus euismod, odio maximus convallis maximus, dolor magna tincidunt massa, in varius leo metus at leo. Fusce purus nisi, condimentum et venenatis id, dictum eu metus. Ut mollis ante vitae diam tempor lobortis. Donec quis neque magna. Fusce sagittis ante odio, vitae congue lacus viverra eu. Cras eu dolor mattis, ultrices ligula non, rutrum ligula. Maecenas pharetra ante et malesuada lobortis. Integer auctor lorem eu tortor suscipit congue.  Vestibulum aliquam luctus est ut viverra. Donec viverra laoreet sem scelerisque interdum. Suspendisse a commodo mi, id eleifend lectus. Suspendisse mattis vestibulum ligula. Nam eget volutpat lectus. Ut malesuada felis nisl, vel sagittis tortor molestie nec. Nullam lacus arcu, eleifend eu tempus eu, blandit quis magna. Cras ut quam venenatis ante auctor aliquet vitae in sapien. Nullam blandit nulla et libero consequat, ac interdum nulla vestibulum. Nullam consectetur enim eu erat luctus, ut cursus purus venenatis. Phasellus imperdiet eget metus a commodo. Nulla eu metus in risus tincidunt convallis. Donec eleifend sem nec massa laoreet, at malesuada ex maximus. Suspendisse ut mauris lacinia, laoreet magna ut, iaculis leo. Aenean congue bibendum ex et viverra."
+        android:text="@string/lorem"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewArticleName" />

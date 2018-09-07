@@ -15,9 +15,7 @@ class ResultsAdapter(private val items: ArrayList<SearchInfoList>,
                      private val context : Context)
     : RecyclerView.Adapter<ViewHolder>() {
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
+    override fun getItemCount() = items.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context)
@@ -30,13 +28,14 @@ class ResultsAdapter(private val items: ArrayList<SearchInfoList>,
 
         holder.listTitle.text = result.title
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, ArticlePageDisplay::class.java).apply {
-                putExtra(EXTRA_ITEM, "test")
-            }
+            val intent = Intent(context.applicationContext, ArticlePageDisplay::class.java)
+
+            intent.putExtra(EXTRA_ITEM, result)
             context.startActivity(intent)
         }
-
     }
+
+
 }
 
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

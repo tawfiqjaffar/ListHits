@@ -36,28 +36,4 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-//    fun buttonGo(view: View) {
-//        val queryString = findViewById<EditText>(R.id.editTextQuery).text
-//        val resultText = findViewById<TextView>(R.id.textViewResult)
-//        val call = api.getHits("query", "json",
-//                "search", queryString.toString())
-//
-//        call.enqueue(object: Callback<QueryResults> {
-//            override fun onResponse(call: Call<QueryResults>, response: Response<QueryResults>) {
-//                val results = response.body()
-//
-//                for (hit in results!!.query!!.search!!) {
-//                    val debugString = "%s\tid:%d\n%s".format(hit.title, hit.pageid,
-//                            android.text.Html.fromHtml(hit.snippet))
-//
-//                    tool.printf(debugString)
-//                }
-//
-//            }
-//            override fun onFailure(call: Call<QueryResults>, t: Throwable) {
-//                Log.d("LOG", t.message.toString())
-//            }
-//        })
-//    }
 }

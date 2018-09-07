@@ -47,19 +47,10 @@ class ListResultsDisplay : AppCompatActivity() {
                     list.add(hit)
                 }
                 recyclerResults.adapter!!.notifyDataSetChanged()
-
-                //displayTitles(resultString)
             }
             override fun onFailure(call: Call<QueryResults>, t: Throwable) {
                 tool.printf(t.message.toString())
             }
         })
     }
-
-//    private fun displayTitles(string: String) {
-//        tool.printf(string.length.toString())
-//        val resultText = findViewById<TextView>(R.id.textViewListResults)
-//
-//        resultText.text = string
-//    }
 }

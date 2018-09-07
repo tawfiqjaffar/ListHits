@@ -2,6 +2,7 @@ package com.tjaffar.listhits
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import java.io.Serializable
@@ -12,12 +13,12 @@ class ArticlePageDisplay : AppCompatActivity() {
     private lateinit var articleContent: TextView
     private lateinit var article : SearchInfoList
     private val tool :Tools = Tools.create()
-    //private val title = findViewById<TextView>(R.id.textViewArticleName)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article_page_display)
         article = intent.getSerializableExtra(EXTRA_ITEM) as SearchInfoList
+
 
         setupView()
     }

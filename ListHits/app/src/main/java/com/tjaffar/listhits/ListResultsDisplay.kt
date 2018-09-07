@@ -26,7 +26,7 @@ class ListResultsDisplay : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_results_display)
-        val queryString = intent.getStringExtra(EXTRA_QUERY)
+        val queryString : String = intent.getStringExtra(EXTRA_QUERY)
 
         recyclerResults = findViewById(R.id.recyclerResults)
         getResponses(queryString)

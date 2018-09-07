@@ -8,6 +8,7 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapt
 
 import android.view.View
 import android.widget.Adapter
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_list_results_display.*
@@ -21,6 +22,7 @@ class ListResultsDisplay : AppCompatActivity() {
     private val api = Network.createRetroFitInstance()
     private val tool = Tools.create()
     lateinit var recyclerResults : RecyclerView
+    lateinit var loadingSpinner : ProgressBar
     val list : ArrayList<SearchInfoList> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +30,8 @@ class ListResultsDisplay : AppCompatActivity() {
         setContentView(R.layout.activity_list_results_display)
         val queryString : String = intent.getStringExtra(EXTRA_QUERY)
 
+        loadingSpinner = findViewById(R.id.loadingSpinner)
+        loadingSpinner.visibility = View.VISIBLE
         recyclerResults = findViewById(R.id.recyclerResults)
         getResponses(queryString)
         tool.printf(list.size.toString())
@@ -41,6 +45,7 @@ class ListResultsDisplay : AppCompatActivity() {
 
         call.enqueue(object: Callback<QueryResults> {
             override fun onResponse(call: Call<QueryResults>, response: Response<QueryResults>) {
+                loadingSpinner.visibility = View.GONE
                 val results = response.body()
 
                 for (hit in results!!.query!!.search!!) {

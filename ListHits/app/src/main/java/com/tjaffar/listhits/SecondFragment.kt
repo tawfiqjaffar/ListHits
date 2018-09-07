@@ -5,6 +5,10 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebChromeClient
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import java.io.Serializable
 
 class SecondFragment : Fragment() {
@@ -14,16 +18,30 @@ class SecondFragment : Fragment() {
     companion object {
         open fun newInstance(article : Serializable) : SecondFragment {
             val args = Bundle()
-
-            args.putSerializable("article", article)
             val frag = SecondFragment()
 
+            args.putSerializable("article", article)
             frag.arguments = args
             return frag
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_second, container, false)
+        val view = inflater.inflate(R.layout.fragment_second, container, false)
+
+        article = this.arguments!!.getSerializable("article") as SearchInfoList
+        setupViews(view, article)
+        return view
+    }
+
+    private fun setupViews(view: View, article: SearchInfoList) {
+        val webView = view.findViewById<WebView>(R.id.webview)
+        webView.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String): Boolean {
+                view!!.loadUrl(url)
+                return true
+            }
+        }
+        webView.loadUrl("http://google.com/")
     }
 }

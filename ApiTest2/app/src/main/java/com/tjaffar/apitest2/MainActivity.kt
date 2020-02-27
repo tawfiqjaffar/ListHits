@@ -13,7 +13,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    private val api = Network.createRetroFitInstance()
+    private val api_test = Network.createRetroFitInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     fun buttonGo(view: View) {
         val queryString = findViewById<EditText>(R.id.editTextQuery).text
         val resultText = findViewById<TextView>(R.id.textViewResult)
-        val call = api.getNumberOfHits("query", "json",
+        val call = api_test.getNumberOfHits("query", "json",
                 "search", queryString.toString())
 
         call.enqueue(object: Callback<Model.Result> {
